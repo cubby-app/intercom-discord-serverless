@@ -1,15 +1,34 @@
-![linear-discord-serverless](./docs/banner.jpg)
+# Intercom Discord Serverless
 
-<h3 align="center">Get linear's events forwarded to Discord webhooks through Vercel serverless functions.</h3>
+A serverless function that forwards Intercom webhooks to Discord.
 
-### Installation
+## Setup
 
-Please visit [lds.alistair.cloud](https://lds.alistair.cloud) which documents the setup. In short, we form a URL that contains the Discord webhook ID and Token, and use that as our linear URL. That way we can use the body with ID and Token in a stateless environment.
+1. Create a Discord webhook in your server
+2. Deploy this to Vercel
+3. Configure your Intercom webhook to point to your deployed function with the Discord webhook ID and token as query parameters:
 
-### Video Guide
+```
+https://your-vercel-deployment.vercel.app/api/v2?id=WEBHOOK_ID&token=WEBHOOK_TOKEN
+```
 
-I've made a small video guide to visually demonstrate setup. You can watch it on [YouTube](https://youtu.be/QgDt8yUnQcA).
+## Features
 
-### Credits
+- Forwards Intercom conversation events to Discord
+- Displays conversation details including:
+  - Conversation state and priority
+  - Customer information
+  - Custom attributes
+  - Message content
+  - Author details
 
-This project is heavily inspired by [@ezolla](https://github.com/ezolla)'s amazing [linear-app-discord](https://github.com/ezolla/linear-app-discord). If you're looking for more control over the data sent, I recommend checking that out.
+## Development
+
+```bash
+yarn install
+yarn d
+```
+
+## License
+
+MIT
